@@ -1,26 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useReducer } from 'react';
+import { UserContext } from './ context/userContext';
+import { stateReducer } from './reducer';
+import Menu from './views/Menu/Menu';
 
-function App() {
+
+const App = () => {
+
+  const [state, dispatch] = useReducer(stateReducer, {
+    username: 'Иванов А. И.'
+  })
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <UserContext.Provider value={state}>
+      <Menu />
+    </UserContext.Provider> 
+  )
 }
 
 export default App;
