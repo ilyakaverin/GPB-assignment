@@ -1,3 +1,16 @@
 .menu__container {
-    border: 1px solid red
+    border-bottom: 1px solid red;
+    display: flex;
+    justify-content: space-between;
+    padding: 23px 35px;
+    .menu__container_actions {
+        display: flex;
+        align-items: center;
+        gap: 2vw;
+    }
+    .menu__container_username {
+        display: flex;
+        align-items: center;
+        gap: 0.5vw;
+    }
 }
