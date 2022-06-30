@@ -1,7 +1,12 @@
-export const stateReducer = (state:any, action:any) => {
-    const actionTypeMap:any = {
-      "increment": () => ({...state, count:state.count + 1})
+import { StoreInterface } from "./ context/userContext"
+
+export type ACTIONTYPE = { type: "username"; payload: string }
+
+export const stateReducer = (state:StoreInterface, action:ACTIONTYPE) => {
+    switch(action.type) {
+      case "username": 
+        return {...state, username: action.payload }
     }
 
-  return actionTypeMap[action]()
+
 }
