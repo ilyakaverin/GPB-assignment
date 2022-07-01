@@ -10,7 +10,7 @@ const Navigation = () => {
         name: 'Главная',
     },
     {
-        id: 1,
+        id: 2,
         pic: Home,
         name: 'Главная',
     }]

@@ -1,0 +1,18 @@
+
+
+.main__container_form_label {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    font-size: 0.875rem;
+    span {
+        width: 20%
+    }
+}
+.main__container_form_inputs {
+    display: flex;
+    width: 74.5%;
+    gap: 8px
+}

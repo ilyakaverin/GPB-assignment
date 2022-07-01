@@ -2,17 +2,17 @@ $font-color: #FFFFFF;
 $link-hover: rgba(202, 202, 202, 0.5);
 .navigation__container {
     background: linear-gradient(#5960EA, #0057B6);
-    max-width: 120px;
+    min-width: 120px;
     height: 100%;
     color: $font-color;
+    grid-row: 2 / 3;
+    grid-column: 1 /2;
     .navigation__container_links {
         border: 1px solid transparent;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-
-
     .navigation__container_link {
         display: flex;
         flex-direction: column;

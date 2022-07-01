@@ -1,8 +1,9 @@
 .menu__container {
-    border-bottom: 1px solid red;
     display: flex;
     justify-content: space-between;
     padding: 23px 35px;
+    grid-column: 1 / 3;
+    grid-row: 1 /2;
     .menu__container_actions {
         display: flex;
         align-items: center;
