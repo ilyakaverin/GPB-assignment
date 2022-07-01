@@ -1,0 +1,24 @@
+$border-color: #D7DEE9;
+$font-color: #0057B6;
+
+.addButton {
+
+    background: none;
+    border: 1px solid $border-color;
+    color: $font-color;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 1rem;
+    padding-left: 1rem;
+    cursor: pointer;
+    width: 320px;
+    background: url('../../assets/cross.svg') no-repeat 5% center;
+    
+
+}
+.addButton:active {
+    transform: translateY(5px);
+}
+.visible {
+    display: none;
+}
