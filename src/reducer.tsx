@@ -125,13 +125,8 @@ export const stateReducer = (store: StoreInterface, action: ACTIONTYPE) => {
             },
         }),
         checkFilling: () => {
-            const isAllFieldsFilled = payload.every(
-                (key: string) => {
-                    if(datakey in store) {
-                        //@ts-ignore
-                        return store[datakey][key as keyof NEW_LICENSE].length > 0 ? "approved" : "filling"
-                    }
-                })
+            //@ts-ignore
+            const isAllFieldsFilled = payload.every((key: string) => store[datakey][key].length > 0) ? "approved" : "filling"
             return {
                 ...store,
                 state: {

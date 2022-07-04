@@ -54,6 +54,7 @@ const Main = () => {
       </div>
       <div className={style.fixed}>
         <StateFilling />
+        <pre>{JSON.stringify(store.state,null,2)}</pre>
       </div>
     </main>
   );
