@@ -1,5 +1,5 @@
 // useFieldValue.js
-import { useEffect, useRef, useState} from "react";
+import { useEffect, useRef, useState } from "react";
 import { useField } from "react-final-form";
 
 const usePrevious = (val) => {
@@ -14,7 +14,7 @@ const usePrevious = (val) => {
 
 const useFieldValue = (name) => {
   const {
-    input: { value }
+    input: { value },
   } = useField(name, { subscription: { value: true } });
   const prevValue = usePrevious(value);
 
@@ -32,21 +32,21 @@ export default ({ name, onChange }) => {
   return null;
 };
 
-
-// get Picks 
+// get Picks
 
 export const useGetPicture = (img) => {
-
-  const [image, setImage] = useState('')
+  const [image, setImage] = useState("");
 
   useEffect(() => {
-      const getPic = async () => {
-          const url = await import(`./assets/${img}`).then((image) => image.default);
+    const getPic = async () => {
+      const url = await import(`./assets/${img}`).then(
+        (image) => image.default
+      );
 
-          setImage(url)
-      }
-      getPic()
-  },[]);
+      setImage(url);
+    };
+    getPic();
+  }, []);
 
-  return [image]
-}
+  return [image];
+};

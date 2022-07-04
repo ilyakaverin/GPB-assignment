@@ -1,39 +1,37 @@
-$card-bg: linear-gradient(#5960EA, #0057B6);
-$card-border: #D7DEE9;
-$cancelButton-color: #0057B6;
+$card-bg: linear-gradient(#5960ea, #0057b6);
+$card-border: #d7dee9;
+$cancelButton-color: #0057b6;
 
 .cardButton {
-    font-size: 1rem;
-    font-family: 'Montserrat', sans-serif;
-    padding: 8px 24px;
-    margin-right: 16px;
-    border-radius: 8px;
-    outline: 0;
-    border: 1px solid $card-border;
-    cursor: pointer;
-
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  padding: 8px 24px;
+  margin-right: 16px;
+  border-radius: 8px;
+  outline: 0;
+  border: 1px solid $card-border;
+  cursor: pointer;
 }
 .cardAddButton {
-    background: $card-bg;
-    color: #FFFFFF;
+  background: $card-bg;
+  color: #ffffff;
 }
 .cardCancelButton {
-    color: $cancelButton-color;
-    background-color: #FFFFFF;
+  color: $cancelButton-color;
+  background-color: #ffffff;
 }
 .cardSaveButton {
-    background: $card-bg;
-    color: #FFFFFF;
+  background: $card-bg;
+  color: #ffffff;
 }
 .cardButton:disabled {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 .cardSendButton {
-    background: $card-bg;
-    color: #FFFFFF;
-    margin-top: 48px;
-    
+  background: $card-bg;
+  color: #ffffff;
+  margin-top: 48px;
 }
 .cardSendButton:active {
-    transform: translateY(5px);
+  transform: translateY(5px);
 }

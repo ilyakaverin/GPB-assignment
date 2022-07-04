@@ -1,33 +1,30 @@
-$font-color:#262C40;
+$font-color: #262c40;
 .main__container_wrapper {
-    margin-bottom: 48px;
+  margin-bottom: 48px;
 }
-.main__container_wrapper .main__container_form_label:nth-child(2)  {
-    justify-content: unset;
-    gap: 35px;
-    input {
-         width:50%
-    }
+.main__container_wrapper .main__container_form_label:nth-child(2) {
+  justify-content: unset;
+  gap: 35px;
+  input {
+    width: 50%;
+  }
 }
 
 .main__container_form_label {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 16px;
-    font-size: 0.875rem;
-    span {
-        width: 20%;
-        color: $font-color
-    }
-
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  font-size: 0.875rem;
+  span {
+    width: 20%;
+    color: $font-color;
+  }
 }
-
 
 .main__container_form_inputs {
-    display: flex;
-    width: 75%;
-    gap: 8px
+  display: flex;
+  width: 75%;
+  gap: 8px;
 }
-

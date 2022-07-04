@@ -1,19 +1,19 @@
-$background-card: #F3F4F7;
-$font-color:#262C40;
+$background-card: #f3f4f7;
+$font-color: #262c40;
 .main__container_card {
-    background-color: $background-card;
-    border-radius: 5px;
-    padding: 24px;
-    margin-bottom: 24px;
-    font-size: 0.875rem;
-    h4 {
-        font-family: 'Montserrat-Black', sans-serif;
-    }
+  background-color: $background-card;
+  border-radius: 5px;
+  padding: 24px;
+  margin-bottom: 24px;
+  font-size: 0.875rem;
+  h4 {
+    font-family: "Montserrat-Black", sans-serif;
+  }
 }
 
 .main__container_card_info {
-    display: grid;
-    grid-template-columns: 150px auto;
-    grid-gap: 5px;
-    margin-bottom: 24px;
+  display: grid;
+  grid-template-columns: 150px auto;
+  grid-gap: 5px;
+  margin-bottom: 24px;
 }

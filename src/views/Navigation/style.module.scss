@@ -1,31 +1,30 @@
-$font-color: #FFFFFF;
+$font-color: #ffffff;
 $link-hover: rgba(202, 202, 202, 0.5);
 .navigation__container {
-    background: linear-gradient(#5960EA, #0057B6);
-    min-width: 120px;
-    height: 100%;
-    color: $font-color;
-    grid-row: 2 / 3;
-    grid-column: 1 /2;
-    .navigation__container_links {
-        border: 1px solid transparent;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .navigation__container_link {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 16px;
-        padding: 11px;
-        gap: 0.8vw;
-        cursor: pointer;
-        width: 90%;
-        border-radius: 5px;
-        
-    }
+  background: linear-gradient(#5960ea, #0057b6);
+  min-width: 120px;
+  height: 100%;
+  color: $font-color;
+  grid-row: 2 / 3;
+  grid-column: 1 /2;
+  .navigation__container_links {
+    border: 1px solid transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .navigation__container_link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 16px;
+    padding: 11px;
+    gap: 0.8vw;
+    cursor: pointer;
+    width: 90%;
+    border-radius: 5px;
+  }
 }
 .navigation__container_link:hover {
-    background-color: $link-hover;
+  background-color: $link-hover;
 }

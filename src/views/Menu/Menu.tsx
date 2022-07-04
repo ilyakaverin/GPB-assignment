@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
-import { UserContext, ContextInterface } from "../../context/userContext";
+import { UserContext } from "../../context/userContext";
+import { ContextInterface } from "../../interfaces";
 import style from "./style.module.scss";
 import { ReactComponent as Logo } from "../../assets/logo.svg";
 import { ReactComponent as Avatar } from "../../assets/avatar.svg";

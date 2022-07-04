@@ -1,17 +1,15 @@
-$field-border-color: #D7DEE9 ;
+$field-border-color: #d7dee9;
 
 .dateInput {
-    border: 1px solid $field-border-color;
-    width: 35%;
-    padding:10px;
-    border-radius: 10px;
-    background: url('../../assets/datapicker.svg') no-repeat 95% center #ffffff;
-    
-
+  border: 1px solid $field-border-color;
+  width: 35%;
+  padding: 10px;
+  border-radius: 10px;
+  background: url("../../assets/datapicker.svg") no-repeat 95% center #ffffff;
 }
 .dateInput::-webkit-calendar-picker-indicator {
-    opacity: 0;
+  opacity: 0;
 }
 .dateInput:disabled {
-    opacity: 0.5;
+  opacity: 0.5;
 }

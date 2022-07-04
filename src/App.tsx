@@ -7,8 +7,6 @@ import Main from "./views/Main/Main";
 import Modal from "./components/Modal/Modal";
 
 const App = () => {
-
-
   const [store, dispatch] = useReducer(stateReducer, {
     username: "Иванов А. И.",
     data: {

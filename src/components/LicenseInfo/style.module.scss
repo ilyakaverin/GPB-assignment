@@ -1,22 +1,14 @@
 .main__container_form_head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    h2 {
-        width: 75%
-    }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h2 {
+    width: 75%;
+  }
 }
 .main__container_form_optional {
-
-    display: none;
-
-    .main__container_form_cards {
-        display: flex;
-        border: 1px solid red
-    }
-    
-    
+  display: none;
 }
 .main__container_form_optional_visible {
-    display: block;
+  display: block;
 }

@@ -2,10 +2,11 @@ import React, { useContext, useEffect, useRef } from "react";
 import style from "./style.module.scss";
 import { Form, Field } from "react-final-form";
 import TextInput from "../TextInput/TextInput";
-import { UserContext, ContextInterface } from "../../context/userContext";
+import { UserContext } from "../../context/userContext";
 import OnChange from "../../customHooks";
 import DatePicker from "../DatePicker/DatePicker";
-import { isStartedTyping } from '../../service';
+import { isStartedTyping } from "../../service";
+import { ContextInterface } from "../../interfaces";
 
 interface Header {
   header: string;
@@ -14,21 +15,23 @@ interface Header {
 const CommonInfo = ({ header }: Header) => {
   const { store, dispatch } = useContext(UserContext) as ContextInterface;
 
-
   useEffect(() => {
+    const commonInfoKeys: string[] = Object.keys(store.data);
 
-    const commonInfoKeys = Object.keys(store.data);
-
-    if(isStartedTyping(commonInfoKeys, store.data)) dispatch({type: 'checkFilling', datakey: 'data', payload: commonInfoKeys })
-
-  },[store.data])
+    if (isStartedTyping(commonInfoKeys, store.data))
+      dispatch({
+        type: "checkFilling",
+        datakey: "data",
+        payload: commonInfoKeys,
+      });
+  }, [store.data]);
 
   return (
     <section className={style.main__container_wrapper}>
       <h2>{header}</h2>
-      <label  className={style.main__container_form_label}>
+      <label className={style.main__container_form_label}>
         <span>ИНН, ОГРН или ОГРНИП</span>
-        <Field name="registryNumber" component={TextInput}  />
+        <Field name="registryNumber" component={TextInput} />
         <OnChange
           name="registryNumber"
           onChange={(value: string) => {

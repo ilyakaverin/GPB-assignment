@@ -1,53 +1,46 @@
-$background-card: #F3F4F7;
-$font-color:#262C40;
+$background-card: #f3f4f7;
+$font-color: #262c40;
 .main__container_form_card {
-    background-color: $background-card;
-    border-radius: 5px;
-    padding: 24px;
-    margin-bottom: 24px;
-    display:none;
-    label {
-        cursor: pointer;
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-        margin-bottom: 16px;
-        font-size: 0.875rem;
-        align-items: center;
-        span {
-            font-size: 0.875rem;
-            width: 20%;
-            color: $font-color
-        }
+  background-color: $background-card;
+  border-radius: 5px;
+  padding: 24px;
+  margin-bottom: 24px;
+  display: none;
+  label {
+    cursor: pointer;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    font-size: 0.875rem;
+    align-items: center;
+    span {
+      font-size: 0.875rem;
+      width: 20%;
+      color: $font-color;
     }
-    h4 {
-        font-family: 'Montserrat-Bold', sans-serif;
+  }
+  h4 {
+    font-family: "Montserrat-Bold", sans-serif;
+  }
+
+  .main__container_form_inputs {
+    display: flex;
+    width: 75%;
+    gap: 8px;
+  }
+  input[type="date"] {
+    width: 100%;
+  }
+  .main_container_form_checkbox {
+    justify-content: unset;
+    margin-bottom: 0;
+    span {
+      width: fit-content;
+      font-size: 1rem;
     }
-
-    .main__container_form_inputs {
-        display: flex;
-        width: 75%;
-        gap: 8px;
-
-    
-    }
-    input[type=date] {
-        width: 100%
-    }
-    .main_container_form_checkbox {
-        justify-content: unset;
-        margin-bottom: 0;
-        span {
-            width: fit-content;
-            font-size: 1rem;
-
-        }
-
-    }
-
+  }
 }
 .main__container_form_card_visible {
-    display: block;
+  display: block;
 }
-
-

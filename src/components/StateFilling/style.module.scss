@@ -1,46 +1,44 @@
 .filling {
-    ul {
-        list-style: none; /* Remove default bullets */
-        li {
-            position: relative;
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-
-        }
-        li::before {
-            content: " ";  
-            position: absolute;
-            background-color: #B8BDCE;
-            border-radius: 50%;
-            font-weight: bold; 
-            display: inline-block; 
-            width: 0.5rem; 
-            height: 0.5rem;
-            margin-left: -1em; 
-          }
-          li::after {
-              content: "";
-              display: inline-block;
-              width: 16px;
-              position: absolute;
-              border: 0.5px solid #B8BDCE;
-              transform: rotate(90deg) ;
-              margin-left: -1.25em;
-              margin-bottom: -2.5em;
-
-          }
-          li:last-child::after {
-            display: none;
-          }
-          .invalid::before {
-            background-color: red;
-          }
-          .approved::before {
-              background-color: green;
-          }
-      }      
+  ul {
+    list-style: none; /* Remove default bullets */
+    li {
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    li::before {
+      content: " ";
+      position: absolute;
+      background-color: #b8bdce;
+      border-radius: 50%;
+      font-weight: bold;
+      display: inline-block;
+      width: 0.5rem;
+      height: 0.5rem;
+      margin-left: -1em;
+    }
+    li::after {
+      content: "";
+      display: inline-block;
+      width: 16px;
+      position: absolute;
+      border: 0.5px solid #b8bdce;
+      transform: rotate(90deg);
+      margin-left: -1.25em;
+      margin-bottom: -2.5em;
+    }
+    li:last-child::after {
+      display: none;
+    }
+    .invalid::before {
+      background-color: red;
+    }
+    .approved::before {
+      background-color: green;
+    }
+  }
 }
- .hidden {
+.hidden {
   display: none !important;
 }
