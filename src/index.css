@@ -4,6 +4,12 @@
        url("./assets/Fonts/Montserrat/static/Montserrat-Regular.ttf");
   font-display: swap;
 }
+@font-face {
+  font-family: "Montserrat-Bold";
+  src: url("./assets/Fonts/Montserrat/static/Montserrat-Bold.woff2"),
+       url("./assets/Fonts/Montserrat/static/Montserrat-Bold.ttf");
+  font-display: swap;
+}
 
 body {
   margin: 0;
@@ -18,4 +24,8 @@ body {
 }
 * {
   box-sizing: border-box;
+}
+h2 {
+  font-size: 1.125rem;
+  font-family: 'Montserrat-Bold';
 }
