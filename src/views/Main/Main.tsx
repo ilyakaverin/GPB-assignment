@@ -36,7 +36,7 @@ const Main = () => {
                 <AddCardButton
                   classname="cardSendButton"
                   type="submit"
-                  disabled={false /* !isMinimumDataFilled */}
+                  disabled={!isMinimumDataFilled}
                   name="Перейти к формированию документов"
                   onClick={() => {
                     dispatch({ type: "prepareObject", datakey: "" });
