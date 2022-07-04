@@ -38,6 +38,7 @@ export interface USER_STATE {
 export interface USER_BUSINESS_DATA {
   [key: string]: string;
 }
+
 export interface StoreInterface {
   username: string;
   data: USER_COMMON_DATA;
