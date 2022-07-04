@@ -8,11 +8,6 @@ const Navigation = () => {
         id: 1,
         pic: Home,
         name: 'Главная',
-    },
-    {
-        id: 2,
-        pic: Home,
-        name: 'Главная',
     }]
 
     return (

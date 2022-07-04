@@ -1,11 +1,22 @@
-$main-background: rgba(138, 138, 138, 0.1);
+$main-background: rgba(38, 44, 64, 0.08);
 
 .main__container {
     grid-column: 2 / 2;
     grid-row: 2 / 2;
     background-color: $main-background;
     padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
     .main__container_form {
         width: 50.2vw
+    }
+    .fixed {
+        grid-column: 3/3;
+        grid-row: 1 / 2;
+        width: 30vw;
+        position: fixed;
+        right: 0;
+        top: 10%;
     }
 }
