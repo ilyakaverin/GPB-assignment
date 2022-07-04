@@ -1,39 +1,64 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import style from './style.module.scss';
 import TextInput from "../TextInput/TextInput";
-import OnChange from '../TextInput/customListener';
-import { Form, Field } from 'react-final-form';
-import { UserContext } from '../../context/userContext';
+import OnChange from '../../customHooks';
 import Datepicker from '../DatePicker/DatePicker';
+import AddCardButton from '../AddCardButton/AddCardButton';
+import { Form, Field } from 'react-final-form';
+import { UserContext,ContextInterface } from '../../context/userContext';
 import cn from 'classnames';
+import { isStartedTyping } from '../../service';
+
+
 
 const LicenseInput = () => {
 
-    const context = useContext(UserContext);
+    const { store, dispatch } = useContext(UserContext) as ContextInterface
 
-    const handleSubmit = () => console.log('hi');
+    const { state, currentLicense } = store;
+    const { businessInfo } = state.fillState
+
+    const isValidForm = (valueObject:any) => {
+        const keys = Object.keys(valueObject);
+
+        return keys.every((key) => valueObject[key].length > 0 )
+    }
+    const onSubmit = ():void => {
+        dispatch({type: 'addLicense', datakey: "licenses", payload: ''});
+        dispatch({type: 'state', datakey: "licenseMode", payload: null });
+        dispatch({type: 'clearLicenseForm', datakey: 'currentLicense', payload:  null});
+    }
+    useEffect(() => {
+        const licenseInfoKeys = Object.keys(store.currentLicense);
+
+        if(businessInfo === 'filling') dispatch({type: 'fillingInterrupted', datakey: 'businessInfo'})
+
+		if(isStartedTyping(licenseInfoKeys, currentLicense)) dispatch({type: 'checkFilling', datakey: 'currentLicense', payload: licenseInfoKeys })
+
+    },[store.currentLicense])
     return (
         <section className={cn(style.main__container_form_card, 
-            {[style.main__container_form_card_visible] : context!.store.state.licenseMode === 'creating'})}>
-            <h4>Добавить новую</h4>
-            <Form onSubmit={handleSubmit}
-            render={() => (
-                <>
+            {[style.main__container_form_card_visible] : state.licenseMode === 'creating' || state.licenseMode === 'editing'})}>
+            <h4>{state.licenseMode === 'editing' ? 'Редактирование лицензии' : 'Добавить новую'}</h4>
+            <Form onSubmit={onSubmit}
+            initialValues={currentLicense}
+                  render={({ handleSubmit}) => (
+                <form onSubmit={handleSubmit} >
                 <label className={style.main__container_form_label}>
                 <span>Вид и номер документа</span> 
                 <div className={style.main__container_form_inputs}>
-                <Field name="typeOfDocument" component={TextInput}  />
+                <Field name="typeOfDocument" component={TextInput} />
                 <OnChange
                     name="typeOfDocument"
                     onChange={(value: string) => {
-                        context?.dispatch({ type: 'newLicense', datakey: "typeOfDocument", payload: value });
+                        dispatch({ type: 'currentLicense', datakey: "typeOfDocument", payload: value });
                     }}
                 />
-                <Field name="documentId" component={TextInput}  />
+                <Field name="documentId" component={TextInput} />
                 <OnChange
                     name="documentId"
                     onChange={(value: string) => {
-                        context?.dispatch({ type: 'newLicense', datakey: "documentId", payload: value });
+                        dispatch({ type: 'currentLicense', datakey: "documentId", payload: value });
                     }}
                 />
                 </div>
@@ -44,17 +69,17 @@ const LicenseInput = () => {
                 <OnChange
                     name="activity"
                     onChange={(value: string) => {
-                        context?.dispatch({ type: 'newLicense', datakey: "activity", payload: value });
+                        dispatch({ type: 'currentLicense', datakey: "activity", payload: value });
                     }}
                 />
             </label>
             <label className={style.main__container_form_label}>
                 <span>Кем выдан документ</span> 
-                <Field name="issued" component={TextInput}  />
+                <Field name="issued" component={TextInput} />
                 <OnChange
                     name="issued"
                     onChange={(value: string) => {
-                        context?.dispatch({ type: 'newLicense', datakey: "issued", payload: value });
+                        dispatch({ type: 'currentLicense', datakey: "issued", payload: value });
                     }}
                 />
             </label>
@@ -65,33 +90,56 @@ const LicenseInput = () => {
                 <OnChange
                     name="dateOfIssue"
                     onChange={(value: string) => {
-                        context?.dispatch({ type: 'newLicense', datakey: "dateOfIssue", payload: value });
+                        dispatch({ type: 'currentLicense', datakey: "dateOfIssue", payload: value });
                     }}
                 />
-                <Field name="expiresAt" component={Datepicker} disabled={context?.store.newLicense.permanent}  />
+                <Field name="expiresAt" component={Datepicker} disabled={state.permanent}  />
                 <OnChange
                     name="expiresAt"
                     onChange={(value: string) => {
-                        context?.dispatch({ type: 'newLicense', datakey: "expiresAt", payload: value });
+                        dispatch({ type: 'currentLicense', datakey: "expiresAt", payload: value });
                     }}
                 />  
                 <label className={style.main_container_form_checkbox}>
                 <Field name="permanent" component="input" type="checkbox"  />
                 <OnChange
                     name="permanent"
-                    onChange={(value: string) => {
-                        context?.dispatch({ type: 'newLicense', datakey: "permanent", payload: value });
-                        context?.dispatch({ type: 'newLicense', datakey: "expiresAt", payload: "" });
+                    onChange={(value: boolean) => {
+                        dispatch({ type: 'state', datakey: "permanent", payload: value });
+                        dispatch({ type: 'currentLicense', datakey: "expiresAt", payload: "3000-01-01" });
                     }}
                 />
                 <span>Бессрочный</span>
                 </label>
                 </div>
-
             </label>
-            </>
+            {
+                state.licenseMode === 'editing' ? 
+                <AddCardButton
+                    name="Сохранить"
+                    type="button"
+                    classname="cardSaveButton"
+                    onClick={() => {
+                        dispatch({type: 'saveLicense', datakey: 'licenses', payload: currentLicense})
+                        dispatch({type: 'state', datakey: "licenseMode", payload: null });
+                        dispatch({type: 'clearLicenseForm', datakey: 'currentLicense', payload:  null});
+                    }}
+                 /> 
+                : <AddCardButton 
+                name="Добавить" 
+                type="submit"
+                classname='cardAddButton'
+                disabled={!isValidForm(currentLicense)}
+            />
+            }
+            <AddCardButton type="reset" classname='cardCancelButton' name="Отменить" onClick={() => {
+                dispatch({type: 'state', datakey: "licenseMode", payload: null });
+                dispatch({type: 'clearLicenseForm', datakey: 'currentLicense', payload:  null});
+            }}  />
+            </form>
             )}
         />
+
         </section>
     )
 }
