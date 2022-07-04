@@ -2,13 +2,6 @@ $font-color: #262c40;
 .main__container_wrapper {
   margin-bottom: 48px;
 }
-.main__container_wrapper .main__container_form_label:nth-child(2) {
-  justify-content: unset;
-  gap: 35px;
-  input {
-    width: 50%;
-  }
-}
 
 .main__container_form_label {
   display: flex;

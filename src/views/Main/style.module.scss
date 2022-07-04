@@ -20,3 +20,21 @@ $main-background: rgba(38, 44, 64, 0.08);
     top: 10%;
   }
 }
+@media(max-width: 1040px) {
+  .main__container {
+    display: flex;
+    flex-direction: column;
+    .main__container_form {
+      width: 90.2vw;
+    }
+    .fixed {
+      grid-column: 3/3;
+      grid-row: 1 / 2;
+      width: 30vw;
+      position: unset;
+      right: 0;
+      top: 10%;
+    }
+  }
+
+} 

@@ -22,6 +22,12 @@ body {
   grid-template-columns: auto 1fr;
   grid-template-rows: auto 1fr;
 }
+@media(max-width: 1040px) {
+  #root {
+    display: flex;
+    flex-direction: column;
+  }
+} 
 * {
   box-sizing: border-box;
 }
