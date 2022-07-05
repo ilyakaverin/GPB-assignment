@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { Form, Field } from "react-final-form"
+import { Field } from "react-final-form"
 import cn from "classnames"
 import style from "./style.module.scss"
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch"

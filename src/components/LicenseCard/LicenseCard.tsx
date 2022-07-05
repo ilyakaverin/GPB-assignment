@@ -3,7 +3,7 @@ import style from "./style.module.scss"
 import { UserContext } from "../../context/userContext"
 import OutputCardButton from "../OutputCardButton/OutputCardButton"
 import { LicenseInterface } from "../../models/licence"
-import { ContextInterface } from "../../interfaces"
+import { ContextInterface } from "../../interfaces";
 
 interface LicenseCardProp {
   license: LicenseInterface
@@ -11,6 +11,7 @@ interface LicenseCardProp {
 
 function LicenseCard({ license }: LicenseCardProp) {
   const { dispatch } = useContext(UserContext) as ContextInterface
+
 
   return (
     <section className={style.main__container_card}>
@@ -31,6 +32,7 @@ function LicenseCard({ license }: LicenseCardProp) {
       </div>
       <div className={style.main__container_card_buttons}>
         <OutputCardButton
+        //@ts-ignore
           img="edit.svg"
           name="Редактировать"
           click={() => {
