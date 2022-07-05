@@ -44,6 +44,7 @@ export interface StoreInterface {
   currentLicense: NEW_LICENSE
   licenses: License[]
   survey: SURVEY_INTERFACE
+  [datakey: string]: any
 }
 export interface ContextInterface {
   store: StoreInterface

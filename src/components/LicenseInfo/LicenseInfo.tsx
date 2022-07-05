@@ -10,17 +10,16 @@ import LicenseInput from "../LicenseInput/LicenseInput"
 import LicenseCard from "../LicenseCard/LicenseCard"
 import { ContextInterface } from "../../interfaces"
 
-function LicenseInfo({ header }: any) {
-  const handleSubmit = () => console.log("hi")
+interface Props {
+    header: string
+}
+
+function LicenseInfo({ header }: Props) {
   const { store, dispatch } = useContext(UserContext) as ContextInterface
   const { licenses } = store
   return (
     <>
-      <Form
-        onSubmit={handleSubmit}
-        initialValues={{ hasLicense: store.state.hasLicense }}
-        render={() => (
-          <section className={style.main__container_form_head}>
+        <section className={style.main__container_form_head}>
             <h2>{header}</h2>
             <Field name="hasLicense" component={ToggleSwitch} type="checkbox" />
             <OnChange
@@ -34,8 +33,6 @@ function LicenseInfo({ header }: any) {
               }}
             />
           </section>
-        )}
-      />
       <section
         className={cn(style.main__container_form_optional, {
           [style.main__container_form_optional_visible]: store.state.hasLicense,

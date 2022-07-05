@@ -120,7 +120,6 @@ export const stateReducer = (store: StoreInterface, action: ACTIONTYPE) => {
     checkFilling: () => {
 
       const isAllFieldsFilled = payload.every(
-                // @ts-ignore
         (key: string) => store[datakey][key].length > 0
       )
         ? "approved"
