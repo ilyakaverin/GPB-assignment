@@ -1,16 +1,16 @@
-import React from "react";
-import style from "./style.module.scss";
-import cn from "classnames";
-import { ACTIONTYPE } from "../../reducer";
+import React from "react"
+import cn from "classnames"
+import style from "./style.module.scss"
+import { ACTIONTYPE } from "../../reducer"
 
 interface AddButtonProp {
-  name: string;
-  isVisible: boolean | undefined;
-  click: Function;
-  action: ACTIONTYPE;
+  name: string
+  isVisible: boolean | undefined
+  click: Function
+  action: ACTIONTYPE
 }
 
-const AddButton = ({ name, isVisible, click, action }: AddButtonProp) => {
+function AddButton({ name, isVisible, click, action }: AddButtonProp) {
   return (
     <button
       onClick={() => click(action)}
@@ -18,6 +18,6 @@ const AddButton = ({ name, isVisible, click, action }: AddButtonProp) => {
     >
       {name}
     </button>
-  );
-};
-export default AddButton;
+  )
+}
+export default AddButton

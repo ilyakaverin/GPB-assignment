@@ -1,4 +1,4 @@
-import { License } from "./models/licence";
+import { License } from "./models/licence"
 
 test("isCorrectClass", () => {
   const mock = {
@@ -9,7 +9,7 @@ test("isCorrectClass", () => {
     issued: "Комиссией по выдаче лицензий",
     dateOfIssue: "2022-07-19",
     expiresAt: "2022-07-21",
-  };
+  }
   const updated = {
     typeOfDocument: "Еще одно свидетельство",
     documentId: " № ЛО-40-01-001077",
@@ -20,8 +20,8 @@ test("isCorrectClass", () => {
     expiresAt: "2022-07-21",
   }
 
-  const class1 = new License(mock);
-  class1.update(updated);
+  const class1 = new License(mock)
+  class1.update(updated)
 
-  expect(class1 instanceof License).toBeTruthy;
-});
+  expect(class1 instanceof License).toBeTruthy
+})

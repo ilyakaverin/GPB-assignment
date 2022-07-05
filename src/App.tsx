@@ -1,12 +1,12 @@
-import React, { useReducer } from "react";
-import { UserContext } from "./context/userContext";
-import { stateReducer } from "./reducer";
-import Menu from "./views/Menu/Menu";
-import Navigation from "./views/Navigation/Navigation";
-import Main from "./views/Main/Main";
-import Modal from "./components/Modal/Modal";
+import React, { useReducer } from "react"
+import { UserContext } from "./context/userContext"
+import { stateReducer } from "./reducer"
+import Menu from "./views/Menu/Menu"
+import Navigation from "./views/Navigation/Navigation"
+import Main from "./views/Main/Main"
+import Modal from "./components/Modal/Modal"
 
-const App = () => {
+function App() {
   const [store, dispatch] = useReducer(stateReducer, {
     username: "Иванов А. И.",
     data: {
@@ -53,7 +53,7 @@ const App = () => {
       fourth: false,
       fifth: false,
     },
-  });
+  })
 
   return (
     <UserContext.Provider value={{ store, dispatch }}>
@@ -62,7 +62,7 @@ const App = () => {
       <Main />
       <Modal />
     </UserContext.Provider>
-  );
-};
+  )
+}
 
-export default App;
+export default App

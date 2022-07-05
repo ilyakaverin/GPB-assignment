@@ -1,43 +1,43 @@
-import React, { useContext, useEffect } from "react";
-import style from "./style.module.scss";
-import TextInput from "../TextInput/TextInput";
-import OnChange from "../../customHooks";
-import Datepicker from "../DatePicker/DatePicker";
-import AddCardButton from "../AddCardButton/AddCardButton";
-import { Form, Field } from "react-final-form";
-import { ContextInterface } from "../../interfaces";
-import cn from "classnames";
-import { isStartedTyping, isValidForm } from "../../service";
-import { UserContext } from "../../context/userContext";
+import React, { useContext, useEffect } from "react"
+import { Form, Field } from "react-final-form"
+import cn from "classnames"
+import style from "./style.module.scss"
+import TextInput from "../TextInput/TextInput"
+import OnChange from "../../customHooks"
+import Datepicker from "../DatePicker/DatePicker"
+import AddCardButton from "../AddCardButton/AddCardButton"
+import { ContextInterface } from "../../interfaces"
+import { isStartedTyping, isValidForm } from "../../service"
+import { UserContext } from "../../context/userContext"
 
-const LicenseInput = () => {
-  const { store, dispatch } = useContext(UserContext) as ContextInterface;
+function LicenseInput() {
+  const { store, dispatch } = useContext(UserContext) as ContextInterface
 
-  const { state, currentLicense } = store;
-  const { businessInfo } = state.fillState;
+  const { state, currentLicense } = store
+  const { businessInfo } = state.fillState
 
   const onSubmit = (): void => {
-    dispatch({ type: "addLicense", datakey: "licenses", payload: "" });
-    dispatch({ type: "state", datakey: "licenseMode", payload: null });
+    dispatch({ type: "addLicense", datakey: "licenses", payload: "" })
+    dispatch({ type: "state", datakey: "licenseMode", payload: null })
     dispatch({
       type: "clearLicenseForm",
       datakey: "currentLicense",
       payload: null,
-    });
-  };
+    })
+  }
   useEffect(() => {
-    const licenseInfoKeys: string[] = Object.keys(store.currentLicense);
+    const licenseInfoKeys: string[] = Object.keys(store.currentLicense)
 
     if (businessInfo === "filling")
-      dispatch({ type: "fillingInterrupted", datakey: "businessInfo" });
+      dispatch({ type: "fillingInterrupted", datakey: "businessInfo" })
 
     if (isStartedTyping(licenseInfoKeys, currentLicense))
       dispatch({
         type: "checkFilling",
         datakey: "currentLicense",
         payload: licenseInfoKeys,
-      });
-  }, [store.currentLicense]);
+      })
+  }, [store.currentLicense])
   return (
     <section
       className={cn(style.main__container_form_card, {
@@ -66,7 +66,7 @@ const LicenseInput = () => {
                       type: "currentLicense",
                       datakey: "typeOfDocument",
                       payload: value,
-                    });
+                    })
                   }}
                 />
                 <Field name="documentId" component={TextInput} />
@@ -77,7 +77,7 @@ const LicenseInput = () => {
                       type: "currentLicense",
                       datakey: "documentId",
                       payload: value,
-                    });
+                    })
                   }}
                 />
               </div>
@@ -92,7 +92,7 @@ const LicenseInput = () => {
                     type: "currentLicense",
                     datakey: "activity",
                     payload: value,
-                  });
+                  })
                 }}
               />
             </label>
@@ -106,7 +106,7 @@ const LicenseInput = () => {
                     type: "currentLicense",
                     datakey: "issued",
                     payload: value,
-                  });
+                  })
                 }}
               />
             </label>
@@ -121,7 +121,7 @@ const LicenseInput = () => {
                       type: "currentLicense",
                       datakey: "dateOfIssue",
                       payload: value,
-                    });
+                    })
                   }}
                 />
                 <Field
@@ -136,7 +136,7 @@ const LicenseInput = () => {
                       type: "currentLicense",
                       datakey: "expiresAt",
                       payload: value,
-                    });
+                    })
                   }}
                 />
                 <label className={style.main_container_form_checkbox}>
@@ -148,12 +148,12 @@ const LicenseInput = () => {
                         type: "state",
                         datakey: "permanent",
                         payload: value,
-                      });
+                      })
                       dispatch({
                         type: "currentLicense",
                         datakey: "expiresAt",
                         payload: "3000-01-01",
-                      });
+                      })
                     }}
                   />
                   <span>Бессрочный</span>
@@ -170,17 +170,17 @@ const LicenseInput = () => {
                     type: "saveLicense",
                     datakey: "licenses",
                     payload: currentLicense,
-                  });
+                  })
                   dispatch({
                     type: "state",
                     datakey: "licenseMode",
                     payload: null,
-                  });
+                  })
                   dispatch({
                     type: "clearLicenseForm",
                     datakey: "currentLicense",
                     payload: null,
-                  });
+                  })
                 }}
               />
             ) : (
@@ -202,18 +202,19 @@ const LicenseInput = () => {
                   type: "state",
                   datakey: "licenseMode",
                   payload: null,
-                });
+                })
                 dispatch({
                   type: "clearLicenseForm",
                   datakey: "currentLicense",
                   payload: null,
-                });
+                })
+                dispatch({type: "setInitStateFilling", datakey: ''})
               }}
             />
           </form>
         )}
       />
     </section>
-  );
-};
-export default LicenseInput;
+  )
+}
+export default LicenseInput

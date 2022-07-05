@@ -1,12 +1,12 @@
-import React, { useContext } from "react";
-import style from "./style.module.scss";
-import { UserContext } from "../../context/userContext";
-import { ContextInterface } from "../../interfaces";
-import cn from "classnames";
+import React, { useContext } from "react"
+import cn from "classnames"
+import style from "./style.module.scss"
+import { UserContext } from "../../context/userContext"
+import { ContextInterface } from "../../interfaces"
 
-const StateFilling = () => {
-  const { store } = useContext(UserContext) as ContextInterface;
-  const { data, businessInfo, currentLicense, survey } = store.state.fillState;
+function StateFilling() {
+  const { store } = useContext(UserContext) as ContextInterface
+  const { data, businessInfo, currentLicense, survey } = store.state.fillState
 
   return (
     <section className={style.filling}>
@@ -24,6 +24,6 @@ const StateFilling = () => {
         <li className={style[survey]}>Опросник</li>
       </ul>
     </section>
-  );
-};
-export default StateFilling;
+  )
+}
+export default StateFilling

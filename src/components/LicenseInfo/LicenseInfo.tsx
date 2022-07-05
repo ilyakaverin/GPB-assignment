@@ -1,19 +1,19 @@
-import React, { useContext } from "react";
-import style from "./style.module.scss";
-import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
-import { Form, Field } from "react-final-form";
-import { UserContext } from "../../context/userContext";
-import OnChange from "../../customHooks";
-import AddButton from "../AddButton/AddButton";
-import LicenseInput from "../LicenseInput/LicenseInput";
-import cn from "classnames";
-import LicenseCard from "../LicenseCard/LicenseCard";
-import { ContextInterface } from "../../interfaces";
+import React, { useContext } from "react"
+import { Form, Field } from "react-final-form"
+import cn from "classnames"
+import style from "./style.module.scss"
+import ToggleSwitch from "../ToggleSwitch/ToggleSwitch"
+import { UserContext } from "../../context/userContext"
+import OnChange from "../../customHooks"
+import AddButton from "../AddButton/AddButton"
+import LicenseInput from "../LicenseInput/LicenseInput"
+import LicenseCard from "../LicenseCard/LicenseCard"
+import { ContextInterface } from "../../interfaces"
 
-const LicenseInfo = ({ header }: any) => {
-  const handleSubmit = () => console.log("hi");
-  const { store, dispatch } = useContext(UserContext) as ContextInterface;
-  const { licenses } = store;
+function LicenseInfo({ header }: any) {
+  const handleSubmit = () => console.log("hi")
+  const { store, dispatch } = useContext(UserContext) as ContextInterface
+  const { licenses } = store
   return (
     <>
       <Form
@@ -30,7 +30,7 @@ const LicenseInfo = ({ header }: any) => {
                   type: "state",
                   datakey: "hasLicense",
                   payload: value,
-                });
+                })
               }}
             />
           </section>
@@ -54,6 +54,6 @@ const LicenseInfo = ({ header }: any) => {
         action={{ type: "state", datakey: "licenseMode", payload: "creating" }}
       />
     </>
-  );
-};
-export default LicenseInfo;
+  )
+}
+export default LicenseInfo

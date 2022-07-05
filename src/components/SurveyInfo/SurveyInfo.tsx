@@ -1,25 +1,25 @@
-import React, { useContext, useEffect } from "react";
-import style from "./style.module.scss";
-import { Field } from "react-final-form";
-import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
-import { UserContext } from "../../context/userContext";
-import OnChange from "../../customHooks";
-import { ContextInterface } from "../../interfaces";
+import React, { useContext, useEffect } from "react"
+import { Field } from "react-final-form"
+import style from "./style.module.scss"
+import ToggleSwitch from "../ToggleSwitch/ToggleSwitch"
+import { UserContext } from "../../context/userContext"
+import OnChange from "../../customHooks"
+import { ContextInterface } from "../../interfaces"
 
-const SurveyInfo = () => {
-  const { store, dispatch } = useContext(UserContext) as ContextInterface;
-  const { currentLicense } = store.state.fillState;
+function SurveyInfo() {
+  const { store, dispatch } = useContext(UserContext) as ContextInterface
+  const { currentLicense } = store.state.fillState
 
   useEffect(() => {
-    const toggleValues = Object.values(store.survey);
+    const toggleValues = Object.values(store.survey)
     if (currentLicense === "filling")
-      dispatch({ type: "fillingInterrupted", datakey: "currentLicense" });
+      dispatch({ type: "fillingInterrupted", datakey: "currentLicense" })
     dispatch({
       type: "checkToggles",
       datakey: "survey",
       payload: toggleValues,
-    });
-  }, [store.survey]);
+    })
+  }, [store.survey])
   return (
     <>
       <section className={style.main__container_survey}>
@@ -32,7 +32,7 @@ const SurveyInfo = () => {
               type: "switchSurveyToggle",
               datakey: "first",
               payload: value,
-            });
+            })
           }}
         />
       </section>
@@ -46,7 +46,7 @@ const SurveyInfo = () => {
               type: "switchSurveyToggle",
               datakey: "second",
               payload: value,
-            });
+            })
           }}
         />
       </section>
@@ -60,7 +60,7 @@ const SurveyInfo = () => {
               type: "switchSurveyToggle",
               datakey: "third",
               payload: value,
-            });
+            })
           }}
         />
       </section>
@@ -74,7 +74,7 @@ const SurveyInfo = () => {
               type: "switchSurveyToggle",
               datakey: "fourth",
               payload: value,
-            });
+            })
           }}
         />
       </section>
@@ -88,11 +88,11 @@ const SurveyInfo = () => {
               type: "switchSurveyToggle",
               datakey: "fifth",
               payload: value,
-            });
+            })
           }}
         />
       </section>
     </>
-  );
-};
-export default SurveyInfo;
+  )
+}
+export default SurveyInfo

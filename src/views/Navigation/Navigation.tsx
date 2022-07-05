@@ -1,15 +1,15 @@
-import React from "react";
-import style from "./style.module.scss";
-import Home from "../../assets/home.svg";
+import React from "react"
+import style from "./style.module.scss"
+import Home from "../../assets/home.svg"
 
-const Navigation = () => {
+function Navigation() {
   const links = [
     {
       id: 1,
       pic: Home,
       name: "Главная",
     },
-  ];
+  ]
 
   return (
     <aside className={style.navigation__container}>
@@ -22,6 +22,6 @@ const Navigation = () => {
         ))}
       </div>
     </aside>
-  );
-};
-export default Navigation;
+  )
+}
+export default Navigation

@@ -1,33 +1,33 @@
-import React, { useContext, useEffect } from "react";
-import style from "./style.module.scss";
-import { UserContext } from "../../context/userContext";
-import { Field } from "react-final-form";
-import OnChange from "../../customHooks";
-import DatePicker from "../DatePicker/DatePicker";
-import TextInput from "../TextInput/TextInput";
-import { isStartedTyping } from "../../service";
-import { ContextInterface } from "../../interfaces";
+import React, { useContext, useEffect } from "react"
+import { Field } from "react-final-form"
+import style from "./style.module.scss"
+import { UserContext } from "../../context/userContext"
+import OnChange from "../../customHooks"
+import DatePicker from "../DatePicker/DatePicker"
+import TextInput from "../TextInput/TextInput"
+import { isStartedTyping } from "../../service"
+import { ContextInterface } from "../../interfaces"
 
 interface Props {
-  header: string;
+  header: string
 }
 
-const BusinessOwnerInfo = ({ header }: Props) => {
-  const { store, dispatch } = useContext(UserContext) as ContextInterface;
-  const { data } = store.state.fillState;
+function BusinessOwnerInfo({ header }: Props) {
+  const { store, dispatch } = useContext(UserContext) as ContextInterface
+  const { data } = store.state.fillState
 
   useEffect(() => {
-    const businessInfoKeys: string[] = Object.keys(store.businessInfo);
+    const businessInfoKeys: string[] = Object.keys(store.businessInfo)
 
     if (data === "filling")
-      dispatch({ type: "fillingInterrupted", datakey: "data" });
+      dispatch({ type: "fillingInterrupted", datakey: "data" })
     if (isStartedTyping(businessInfoKeys, store.businessInfo))
       dispatch({
         type: "checkFilling",
         datakey: "businessInfo",
         payload: businessInfoKeys,
-      });
-  }, [store.businessInfo]);
+      })
+  }, [store.businessInfo])
 
   return (
     <section>
@@ -43,7 +43,7 @@ const BusinessOwnerInfo = ({ header }: Props) => {
                 type: "businessInfo",
                 datakey: "businessRegDate",
                 payload: value,
-              });
+              })
             }}
           />
           <Field name="businessRegId" component={TextInput} />
@@ -54,7 +54,7 @@ const BusinessOwnerInfo = ({ header }: Props) => {
                 type: "businessInfo",
                 datakey: "businessRegId",
                 payload: value,
-              });
+              })
             }}
           />
         </div>
@@ -69,11 +69,11 @@ const BusinessOwnerInfo = ({ header }: Props) => {
               type: "businessInfo",
               datakey: "businessRegPlace",
               payload: value,
-            });
+            })
           }}
         />
       </label>
     </section>
-  );
-};
-export default BusinessOwnerInfo;
+  )
+}
+export default BusinessOwnerInfo

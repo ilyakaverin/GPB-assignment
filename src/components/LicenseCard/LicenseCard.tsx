@@ -1,15 +1,16 @@
-import React, { useContext } from "react";
-import style from "./style.module.scss";
-import { UserContext } from "../../context/userContext";
-import OutputCardButton from "../OutputCardButton/OutputCardButton";
-import { LicenseInterface } from "../../models/licence";
-import { ContextInterface } from "../../interfaces";
+import React, { useContext } from "react"
+import style from "./style.module.scss"
+import { UserContext } from "../../context/userContext"
+import OutputCardButton from "../OutputCardButton/OutputCardButton"
+import { LicenseInterface } from "../../models/licence"
+import { ContextInterface } from "../../interfaces"
+
 interface LicenseCardProp {
-  license: LicenseInterface;
+  license: LicenseInterface
 }
 
-const LicenseCard = ({ license }: LicenseCardProp) => {
-  const { dispatch } = useContext(UserContext) as ContextInterface;
+function LicenseCard({ license }: LicenseCardProp) {
+  const { dispatch } = useContext(UserContext) as ContextInterface
 
   return (
     <section className={style.main__container_card}>
@@ -37,7 +38,7 @@ const LicenseCard = ({ license }: LicenseCardProp) => {
               type: "editLicense",
               datakey: "licenseMode",
               payload: license,
-            });
+            })
           }}
         />
         <OutputCardButton
@@ -48,16 +49,16 @@ const LicenseCard = ({ license }: LicenseCardProp) => {
               type: "deleteLicense",
               datakey: "licenses",
               payload: license.id,
-            });
+            })
             dispatch({
               type: "clearLicenseForm",
               datakey: "newLicense",
               payload: null,
-            });
+            })
           }}
         />
       </div>
     </section>
-  );
-};
-export default LicenseCard;
+  )
+}
+export default LicenseCard

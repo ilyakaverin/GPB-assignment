@@ -1,30 +1,30 @@
-import React, { useContext, useEffect, useRef } from "react";
-import style from "./style.module.scss";
-import { Form, Field } from "react-final-form";
-import TextInput from "../TextInput/TextInput";
-import { UserContext } from "../../context/userContext";
-import OnChange from "../../customHooks";
-import DatePicker from "../DatePicker/DatePicker";
-import { isStartedTyping } from "../../service";
-import { ContextInterface } from "../../interfaces";
+import React, { useContext, useEffect, useRef } from "react"
+import { Form, Field } from "react-final-form"
+import style from "./style.module.scss"
+import TextInput from "../TextInput/TextInput"
+import { UserContext } from "../../context/userContext"
+import OnChange from "../../customHooks"
+import DatePicker from "../DatePicker/DatePicker"
+import { isStartedTyping } from "../../service"
+import { ContextInterface } from "../../interfaces"
 
 interface Header {
-  header: string;
+  header: string
 }
 
-const CommonInfo = ({ header }: Header) => {
-  const { store, dispatch } = useContext(UserContext) as ContextInterface;
+function CommonInfo({ header }: Header) {
+  const { store, dispatch } = useContext(UserContext) as ContextInterface
 
   useEffect(() => {
-    const commonInfoKeys: string[] = Object.keys(store.data);
+    const commonInfoKeys: string[] = Object.keys(store.data)
 
     if (isStartedTyping(commonInfoKeys, store.data))
       dispatch({
         type: "checkFilling",
         datakey: "data",
         payload: commonInfoKeys,
-      });
-  }, [store.data]);
+      })
+  }, [store.data])
 
   return (
     <section className={style.main__container_wrapper}>
@@ -39,7 +39,7 @@ const CommonInfo = ({ header }: Header) => {
               type: "data",
               datakey: "registryNumber",
               payload: value,
-            });
+            })
           }}
         />
       </label>
@@ -49,7 +49,7 @@ const CommonInfo = ({ header }: Header) => {
         <OnChange
           name="fullName"
           onChange={(value: string) => {
-            dispatch({ type: "data", datakey: "fullName", payload: value });
+            dispatch({ type: "data", datakey: "fullName", payload: value })
           }}
         />
       </label>
@@ -64,7 +64,7 @@ const CommonInfo = ({ header }: Header) => {
                 type: "data",
                 datakey: "dateOfBirth",
                 payload: value,
-              });
+              })
             }}
           />
           <Field name="placeOfBirth" component={TextInput} />
@@ -75,7 +75,7 @@ const CommonInfo = ({ header }: Header) => {
                 type: "data",
                 datakey: "placeOfBirth",
                 payload: value,
-              });
+              })
             }}
           />
         </div>
@@ -86,7 +86,7 @@ const CommonInfo = ({ header }: Header) => {
         <OnChange
           name="citizenship"
           onChange={(value: string) => {
-            dispatch({ type: "data", datakey: "citizenship", payload: value });
+            dispatch({ type: "data", datakey: "citizenship", payload: value })
           }}
         />
       </label>
@@ -96,7 +96,7 @@ const CommonInfo = ({ header }: Header) => {
         <OnChange
           name="snils"
           onChange={(value: string) => {
-            dispatch({ type: "data", datakey: "snils", payload: value });
+            dispatch({ type: "data", datakey: "snils", payload: value })
           }}
         />
       </label>
@@ -110,7 +110,7 @@ const CommonInfo = ({ header }: Header) => {
               type: "data",
               datakey: "registerAdress",
               payload: value,
-            });
+            })
           }}
         />
       </label>
@@ -122,11 +122,11 @@ const CommonInfo = ({ header }: Header) => {
         <OnChange
           name="livingAdress"
           onChange={(value: string) => {
-            dispatch({ type: "data", datakey: "livingAdress", payload: value });
+            dispatch({ type: "data", datakey: "livingAdress", payload: value })
           }}
         />
       </label>
     </section>
-  );
-};
-export default CommonInfo;
+  )
+}
+export default CommonInfo
