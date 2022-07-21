@@ -4,13 +4,13 @@ import style from "./style.module.scss"
 
 interface Props {
   name: string
-  classname: string
+  classname: string 
   type?: "submit" | "reset" | "button"
   disabled?: boolean
   onClick?: () => void
 }
 
-function AddCardButton({ name, classname, ...rest }: Props) {
+const AddCardButton = ({ name, classname, ...rest }: Props) => {
   return (
     <button className={cn(style.cardButton, style[classname])} {...rest}>
       {name}

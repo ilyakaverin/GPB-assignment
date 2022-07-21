@@ -6,7 +6,7 @@ import { UserContext } from "../../context/userContext"
 import OnChange from "../../customHooks"
 import { ContextInterface } from "../../interfaces"
 
-function SurveyInfo() {
+const SurveyInfo = () => {
   const { store, dispatch } = useContext(UserContext) as ContextInterface
   const { currentLicense } = store.state.fillState
 

@@ -4,7 +4,7 @@ import style from "./style.module.scss"
 import { UserContext } from "../../context/userContext"
 import { ContextInterface } from "../../interfaces"
 
-function StateFilling() {
+const StateFilling = () => {
   const { store } = useContext(UserContext) as ContextInterface
   const { data, businessInfo, currentLicense, survey } = store.state.fillState
 

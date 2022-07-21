@@ -10,7 +10,7 @@ import { ContextInterface } from "../../interfaces"
 import { isStartedTyping, isValidForm } from "../../service"
 import { UserContext } from "../../context/userContext"
 
-function LicenseInput() {
+const LicenseInput = () => {
   const { store, dispatch } = useContext(UserContext) as ContextInterface
 
   const { state, currentLicense } = store

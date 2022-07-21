@@ -10,7 +10,7 @@ import AddCardButton from "../../components/AddCardButton/AddCardButton"
 import StateFilling from "../../components/StateFilling/StateFilling"
 import { ContextInterface } from "../../interfaces"
 
-function Main() {
+const Main = () => {
   const { store, dispatch } = useContext(UserContext) as ContextInterface
 
   const handleChange = () => {

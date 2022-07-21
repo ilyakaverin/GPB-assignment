@@ -6,7 +6,7 @@ import Navigation from "./views/Navigation/Navigation"
 import Main from "./views/Main/Main"
 import Modal from "./components/Modal/Modal"
 
-function App() {
+const  App = () => {
   const [store, dispatch] = useReducer(stateReducer, {
     username: "Иванов А. И.",
     data: {

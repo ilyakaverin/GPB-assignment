@@ -12,7 +12,7 @@ interface Header {
   header: string
 }
 
-function CommonInfo({ header }: Header) {
+const CommonInfo = ({ header }: Header) => {
   const { store, dispatch } = useContext(UserContext) as ContextInterface
 
   useEffect(() => {

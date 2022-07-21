@@ -3,14 +3,14 @@ import cn from "classnames"
 import style from "./style.module.scss"
 import { ACTIONTYPE } from "../../reducer"
 
-interface AddButtonProp {
+interface AddButtonProps {
   name: string
   isVisible: boolean | undefined
   click: Function
   action: ACTIONTYPE
 }
 
-function AddButton({ name, isVisible, click, action }: AddButtonProp) {
+const AddButton = ({ name, isVisible, click, action }: AddButtonProps) => {
   return (
     <button
       onClick={() => click(action)}

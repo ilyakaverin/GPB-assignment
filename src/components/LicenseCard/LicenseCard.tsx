@@ -9,7 +9,7 @@ interface LicenseCardProp {
   license: LicenseInterface
 }
 
-function LicenseCard({ license }: LicenseCardProp) {
+const LicenseCard = ({ license }: LicenseCardProp) => {
   const { dispatch } = useContext(UserContext) as ContextInterface
 
 

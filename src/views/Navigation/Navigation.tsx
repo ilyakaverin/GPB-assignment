@@ -2,7 +2,7 @@ import React from "react"
 import style from "./style.module.scss"
 import Home from "../../assets/home.svg"
 
-function Navigation() {
+const Navigation = () => {
   const links = [
     {
       id: 1,

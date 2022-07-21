@@ -14,7 +14,7 @@ interface Props {
     header: string
 }
 
-function LicenseInfo({ header }: Props) {
+const LicenseInfo = ({ header }: Props) => {
   const { store, dispatch } = useContext(UserContext) as ContextInterface
   const { licenses } = store
   return (

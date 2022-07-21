@@ -12,7 +12,7 @@ interface Props {
   header: string
 }
 
-function BusinessOwnerInfo({ header }: Props) {
+const BusinessOwnerInfo = ({ header }: Props) => {
   const { store, dispatch } = useContext(UserContext) as ContextInterface
   const { data } = store.state.fillState
 

@@ -7,7 +7,7 @@ import { ReactComponent as Avatar } from "../../assets/avatar.svg"
 import { ReactComponent as Bell } from "../../assets/bell.svg"
 import { ReactComponent as Logout } from "../../assets/logout.svg"
 
-function Menu() {
+const Menu = () => {
   const { store } = useContext(UserContext) as ContextInterface
 
   return (
